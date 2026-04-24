@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Digital Dealer</title>
-  <meta name="description" content="Digital Dealer - Modern responsive landing page">
+  <title>Nuts & Spices Market</title>
+  <meta name="description" content="Nuts & Spices Market - browse premium nuts and aromatic spices.">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home">Digital Dealer</a>
+      <a class="brand" href="#home">Nuts & Spices Market</a>
       <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">☰</button>
       <nav id="primary-navigation" class="nav">
         <ul>
-          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#products">Products</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -25,31 +26,77 @@
   <main>
     <section id="home" class="hero">
       <div class="container hero-inner">
-        <h1>Drive Your Business Forward</h1>
-        <p class="lead">We help dealerships modernize their digital presence with clean design and smart tools.</p>
+        <h1>Fresh Nuts & Aromatic Spices</h1>
+        <p class="lead">Browse our curated collection of handpicked nuts and authentic spices. This website is a product showcase only — no online payments.</p>
         <p class="cta-row">
-          <a class="btn btn-primary" href="#contact">Get in Touch</a>
-          <a class="btn btn-ghost" href="#about">Learn More</a>
+          <a class="btn btn-primary" href="#products">View Products</a>
+          <a class="btn btn-ghost" href="#contact">Request Price List</a>
         </p>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="container">
+        <h2>Our Product Catalog</h2>
+        <p class="section-sub">Use the filters to explore nuts and spices.</p>
+
+        <div class="filter-row" role="tablist" aria-label="Product filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="nut">Nuts</button>
+          <button class="chip" data-filter="spice">Spices</button>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <article class="product-card" data-type="nut">
+            <h3>Premium Almonds</h3>
+            <p>Crunchy California almonds, ideal for healthy snacking and baking.</p>
+            <span class="tag">Nuts</span>
+          </article>
+          <article class="product-card" data-type="nut">
+            <h3>Whole Cashews</h3>
+            <p>Rich and buttery cashews sourced for freshness and taste.</p>
+            <span class="tag">Nuts</span>
+          </article>
+          <article class="product-card" data-type="nut">
+            <h3>Walnut Halves</h3>
+            <p>Omega-rich walnut halves perfect for cereals, salads, and desserts.</p>
+            <span class="tag">Nuts</span>
+          </article>
+          <article class="product-card" data-type="spice">
+            <h3>Turmeric Powder</h3>
+            <p>Bright golden turmeric with strong aroma and natural color.</p>
+            <span class="tag">Spices</span>
+          </article>
+          <article class="product-card" data-type="spice">
+            <h3>Kashmiri Red Chili</h3>
+            <p>Vibrant chili powder that adds color and balanced heat.</p>
+            <span class="tag">Spices</span>
+          </article>
+          <article class="product-card" data-type="spice">
+            <h3>Whole Cumin Seeds</h3>
+            <p>Fragrant cumin seeds suited for tempering and spice blends.</p>
+            <span class="tag">Spices</span>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="about" class="section about">
       <div class="container">
-        <h2>About Digital Dealer</h2>
-        <p>Digital Dealer provides simple, modern web solutions tailored for car dealerships and auto-related businesses. Our focus is on usability, performance, and a brand-forward design that converts visitors into customers.</p>
+        <h2>About Us</h2>
+        <p>We are a specialty nuts and spices supplier focused on quality sourcing, careful packing, and reliable wholesale supply for homes, retailers, and food businesses.</p>
         <div class="features">
           <article>
-            <h3>Responsive Design</h3>
-            <p>Looks great on any device — desktop, tablet, and mobile.</p>
+            <h3>Quality First</h3>
+            <p>Every batch is selected for flavor, freshness, and consistency.</p>
           </article>
           <article>
-            <h3>Fast & Lightweight</h3>
-            <p>Optimized HTML and CSS keep the site quick to load.</p>
+            <h3>Wide Variety</h3>
+            <p>From dry fruits to essential kitchen spices, we cover everyday needs.</p>
           </article>
           <article>
-            <h3>Easy to Customize</h3>
-            <p>Clear structure and styles make updates straightforward.</p>
+            <h3>Bulk Availability</h3>
+            <p>Ideal for retailers and restaurants looking for dependable supply.</p>
           </article>
         </div>
       </div>
@@ -57,34 +104,20 @@
 
     <section id="contact" class="section contact">
       <div class="container">
-        <h2>Contact Us</h2>
-        <p>If you'd like to learn more or request a demo, fill out the form below.</p>
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required placeholder="Your name">
-          </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com">
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your needs"></textarea>
-          </div>
-          <div class="form-row form-actions">
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <button type="reset" class="btn btn-ghost">Reset</button>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-        </form>
+        <h2>Contact for Orders & Inquiry</h2>
+        <p>This website is display-only. To place orders, request pricing, or discuss bulk requirements, contact us directly.</p>
+        <div class="contact-box">
+          <p><strong>Phone:</strong> +1 (555) 010-2345</p>
+          <p><strong>Email:</strong> sales@nutsandspicesmarket.com</p>
+          <p><strong>Hours:</strong> Mon–Sat, 9:00 AM – 6:00 PM</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Digital Dealer — Built with HTML, CSS & JavaScript.</p>
+      <p>&copy; <span id="year"></span> Nuts & Spices Market — Product showcase only, no online payment.</p>
     </div>
   </footer>
 
