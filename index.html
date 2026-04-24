@@ -3,88 +3,167 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Digital Dealer</title>
-  <meta name="description" content="Digital Dealer - Modern responsive landing page">
+  <title>Nuts & Spices Market | Catalog Platform</title>
+  <meta name="description" content="Browse nuts, spices, and snacks. Create an account, save wishlist, and place inquiry orders with no online payment.">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home">Digital Dealer</a>
+      <a class="brand" href="#home">Nuts & Spices Market</a>
       <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">☰</button>
-      <nav id="primary-navigation" class="nav">
+      <nav id="primary-navigation" class="nav" aria-expanded="false">
         <ul>
-          <li><a class="nav-link" href="#home">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#products">Products</a></li>
+          <li><a class="nav-link" href="#offers">Offers</a></li>
+          <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-actions">
+        <button id="auth-btn" class="btn btn-ghost btn-sm">Login / Signup</button>
+        <button id="wishlist-btn" class="btn btn-ghost btn-sm">Wishlist <span id="wishlist-count">0</span></button>
+        <button id="cart-btn" class="btn btn-primary btn-sm">Cart <span id="cart-count">0</span></button>
+      </div>
     </div>
   </header>
 
   <main>
     <section id="home" class="hero">
-      <div class="container hero-inner">
-        <h1>Drive Your Business Forward</h1>
-        <p class="lead">We help dealerships modernize their digital presence with clean design and smart tools.</p>
-        <p class="cta-row">
-          <a class="btn btn-primary" href="#contact">Get in Touch</a>
-          <a class="btn btn-ghost" href="#about">Learn More</a>
-        </p>
-      </div>
-    </section>
-
-    <section id="about" class="section about">
-      <div class="container">
-        <h2>About Digital Dealer</h2>
-        <p>Digital Dealer provides simple, modern web solutions tailored for car dealerships and auto-related businesses. Our focus is on usability, performance, and a brand-forward design that converts visitors into customers.</p>
-        <div class="features">
-          <article>
-            <h3>Responsive Design</h3>
-            <p>Looks great on any device — desktop, tablet, and mobile.</p>
-          </article>
-          <article>
-            <h3>Fast & Lightweight</h3>
-            <p>Optimized HTML and CSS keep the site quick to load.</p>
-          </article>
-          <article>
-            <h3>Easy to Customize</h3>
-            <p>Clear structure and styles make updates straightforward.</p>
-          </article>
+      <div class="container hero-grid">
+        <div>
+          <h1>Fresh Nuts, Pure Spices, Tasty Snacks</h1>
+          <p class="lead">A complete catalog platform for retail and bulk buyers. Add items to cart, save wishlist, and submit your order inquiry — no online payment required.</p>
+          <p class="cta-row">
+            <a class="btn btn-primary" href="#products">Browse Catalog</a>
+            <a class="btn btn-ghost" href="#order-track">Track Order</a>
+          </p>
+          <p id="user-greeting" class="muted"></p>
+        </div>
+        <div class="hero-panel">
+          <h3>Quick Highlights</h3>
+          <ul>
+            <li>✅ 100+ curated products</li>
+            <li>✅ Category filters + smart search</li>
+            <li>✅ Wishlist and inquiry cart</li>
+            <li>✅ WhatsApp business support</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="products" class="section">
       <div class="container">
-        <h2>Contact Us</h2>
-        <p>If you'd like to learn more or request a demo, fill out the form below.</p>
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required placeholder="Your name">
-          </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com">
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your needs"></textarea>
-          </div>
-          <div class="form-row form-actions">
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <button type="reset" class="btn btn-ghost">Reset</button>
-          </div>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
+        <h2>Product Catalog</h2>
+        <div class="controls-grid">
+          <input id="search-input" type="search" placeholder="Search products (e.g., almond, turmeric)..." aria-label="Search products">
+          <select id="category-select" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="nuts">Nuts</option>
+            <option value="spices">Spices</option>
+            <option value="snacks">Snacks</option>
+          </select>
+          <select id="sort-select" aria-label="Sort products">
+            <option value="popular">Sort: Popular</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+        </div>
+        <div id="products-grid" class="products-grid"></div>
+        <p id="empty-state" class="muted hidden">No products found for current filters.</p>
+      </div>
+    </section>
+
+    <section id="offers" class="section alt">
+      <div class="container">
+        <h2>Special Offers</h2>
+        <div class="offers-grid">
+          <article><h3>Bulk Saver</h3><p>Get up to 15% off for orders above 25kg.</p></article>
+          <article><h3>Retail Combo</h3><p>Mix any 5 spice packs and save $10.</p></article>
+          <article><h3>New Buyer Deal</h3><p>First inquiry customers receive free sampling kit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="order-track" class="section">
+      <div class="container track-box">
+        <h2>Order Tracking</h2>
+        <p>Enter your inquiry/order ID (e.g., NSM-1002).</p>
+        <div class="track-row">
+          <input id="track-input" type="text" placeholder="NSM-1002">
+          <button id="track-btn" class="btn btn-primary">Track</button>
+        </div>
+        <p id="track-result" class="muted"></p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section alt">
+      <div class="container">
+        <h2>What Customers Say</h2>
+        <div class="testimonials-grid">
+          <blockquote>“Very consistent quality and on-time dispatch every week.” <cite>— Green Basket Store</cite></blockquote>
+          <blockquote>“The spice aroma is excellent. Packaging is premium.” <cite>— Spice Route Kitchen</cite></blockquote>
+          <blockquote>“Bulk buying process was smooth and transparent.” <cite>— Metro Foods</cite></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contact & Business Details</h2>
+          <p class="muted">No online payment on website. Place inquiry orders and receive payment options from our sales team.</p>
+          <p><strong>Phone:</strong> +1 (555) 010-2345</p>
+          <p><strong>Email:</strong> sales@nutsandspicesmarket.com</p>
+          <p><strong>Address:</strong> 120 Market Lane, Fresno, CA</p>
+          <p><strong>Hours:</strong> Mon–Sat, 9:00 AM – 6:00 PM</p>
+          <a class="btn btn-ghost" href="https://wa.me/15550102345" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        </div>
+        <form id="newsletter-form" class="newsletter" novalidate>
+          <h3>Newsletter Signup</h3>
+          <label for="newsletter-email">Get offers and stock updates</label>
+          <input id="newsletter-email" type="email" placeholder="you@example.com" required>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+          <p id="newsletter-status" class="muted"></p>
         </form>
       </div>
     </section>
   </main>
 
+  <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Inquiry Cart</h3>
+      <button id="cart-close" class="btn btn-ghost btn-sm">Close</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <p id="cart-total" class="cart-total">Total: $0.00</p>
+    <button id="checkout-btn" class="btn btn-primary">Submit Inquiry Order</button>
+    <p class="muted">No payment collected online. Our team will contact you to confirm.</p>
+  </aside>
+
+  <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="modal-card">
+      <h3 id="auth-title">Login / Signup</h3>
+      <form id="auth-form" novalidate>
+        <label for="auth-name">Name</label>
+        <input id="auth-name" type="text" placeholder="Your name" required>
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" placeholder="you@example.com" required>
+        <div class="modal-actions">
+          <button class="btn btn-primary" type="submit">Save Account</button>
+          <button id="auth-close" class="btn btn-ghost" type="button">Cancel</button>
+        </div>
+        <p id="auth-status" class="muted"></p>
+      </form>
+    </div>
+  </div>
+
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Digital Dealer — Built with HTML, CSS & JavaScript.</p>
+    <div class="container footer-grid">
+      <p>&copy; <span id="year"></span> Nuts & Spices Market.</p>
+      <p>SEO-ready static catalog platform with inquiry checkout.</p>
     </div>
   </footer>
 
