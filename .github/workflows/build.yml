@@ -1,0 +1,30 @@
+name: Build static site
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate required static assets
+        run: |
+          test -f index.html
+          test -f assets/css/styles.css
+          test -f assets/js/main.js
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: static-site
+          path: |
+            index.html
+            assets/
