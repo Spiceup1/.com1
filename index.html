@@ -3,28 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Nuts & Spices Market | Catalog Platform</title>
-  <meta name="description" content="Browse nuts, spices, and snacks. Create an account, save wishlist, and place inquiry orders with no online payment.">
+  <title>Nuts & Spices Market | Wholesale & Retail Catalog</title>
+  <meta name="description" content="Explore nuts, spices, and snacks. Build an inquiry cart, save wishlist items, and contact our team for non-payment order confirmation.">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home">Nuts & Spices Market</a>
+
       <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">☰</button>
       <nav id="primary-navigation" class="nav" aria-expanded="false">
         <ul>
           <li><a class="nav-link active" href="#home">Home</a></li>
-          <li><a class="nav-link" href="#products">Products</a></li>
+          <li><a class="nav-link" href="#products">Catalog</a></li>
           <li><a class="nav-link" href="#offers">Offers</a></li>
-          <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li><a class="nav-link" href="#order-track">Track</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
+
       <div class="header-actions">
-        <button id="auth-btn" class="btn btn-ghost btn-sm">Login / Signup</button>
+        <button id="auth-btn" class="btn btn-ghost btn-sm">Account</button>
         <button id="wishlist-btn" class="btn btn-ghost btn-sm">Wishlist <span id="wishlist-count">0</span></button>
-        <button id="cart-btn" class="btn btn-primary btn-sm">Cart <span id="cart-count">0</span></button>
+        <button id="cart-btn" class="btn btn-primary btn-sm">Inquiry Cart <span id="cart-count">0</span></button>
       </div>
     </div>
   </header>
@@ -33,66 +35,81 @@
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div>
-          <h1>Fresh Nuts, Pure Spices, Tasty Snacks</h1>
-          <p class="lead">A complete catalog platform for retail and bulk buyers. Add items to cart, save wishlist, and submit your order inquiry — no online payment required.</p>
+          <h1>Premium Nuts, Authentic Spices, Everyday Snacks</h1>
+          <p class="lead">Browse products, shortlist favorites, and submit an inquiry cart. This website does <strong>not</strong> collect online payments — our team contacts you for pricing and fulfillment.</p>
           <p class="cta-row">
-            <a class="btn btn-primary" href="#products">Browse Catalog</a>
-            <a class="btn btn-ghost" href="#order-track">Track Order</a>
+            <a class="btn btn-primary" href="#products">Explore Catalog</a>
+            <a class="btn btn-ghost" href="#contact">Talk to Sales</a>
           </p>
           <p id="user-greeting" class="muted"></p>
         </div>
-        <div class="hero-panel">
-          <h3>Quick Highlights</h3>
+
+        <aside class="hero-panel" aria-label="platform highlights">
+          <h3>Platform Highlights</h3>
           <ul>
-            <li>✅ 100+ curated products</li>
-            <li>✅ Category filters + smart search</li>
-            <li>✅ Wishlist and inquiry cart</li>
-            <li>✅ WhatsApp business support</li>
+            <li>Category-wise catalog browsing</li>
+            <li>Search + sorting controls</li>
+            <li>Wishlist for repeat buying</li>
+            <li>Inquiry cart (no online payment)</li>
           </ul>
-        </div>
+        </aside>
       </div>
     </section>
 
     <section id="products" class="section">
       <div class="container">
-        <h2>Product Catalog</h2>
+        <h2>Catalog</h2>
+        <p class="muted">Use filters to quickly find products for retail or bulk purchase.</p>
+
         <div class="controls-grid">
-          <input id="search-input" type="search" placeholder="Search products (e.g., almond, turmeric)..." aria-label="Search products">
+          <input id="search-input" type="search" placeholder="Search by product name or description" aria-label="Search products">
+
           <select id="category-select" aria-label="Filter by category">
             <option value="all">All Categories</option>
             <option value="nuts">Nuts</option>
             <option value="spices">Spices</option>
             <option value="snacks">Snacks</option>
           </select>
+
           <select id="sort-select" aria-label="Sort products">
-            <option value="popular">Sort: Popular</option>
+            <option value="popular">Popular</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
             <option value="name-asc">Name: A to Z</option>
           </select>
         </div>
+
         <div id="products-grid" class="products-grid"></div>
-        <p id="empty-state" class="muted hidden">No products found for current filters.</p>
+        <p id="empty-state" class="muted hidden">No products matched your filters.</p>
       </div>
     </section>
 
     <section id="offers" class="section alt">
       <div class="container">
-        <h2>Special Offers</h2>
+        <h2>Current Offers</h2>
         <div class="offers-grid">
-          <article><h3>Bulk Saver</h3><p>Get up to 15% off for orders above 25kg.</p></article>
-          <article><h3>Retail Combo</h3><p>Mix any 5 spice packs and save $10.</p></article>
-          <article><h3>New Buyer Deal</h3><p>First inquiry customers receive free sampling kit.</p></article>
+          <article>
+            <h3>Bulk Discount</h3>
+            <p>Get special rates on larger quantity inquiries.</p>
+          </article>
+          <article>
+            <h3>Monthly Combo Packs</h3>
+            <p>Pre-curated nuts + spice combinations for stores.</p>
+          </article>
+          <article>
+            <h3>New Buyer Samples</h3>
+            <p>Eligible first-time buyers can request sample kits.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="order-track" class="section">
       <div class="container track-box">
-        <h2>Order Tracking</h2>
-        <p>Enter your inquiry/order ID (e.g., NSM-1002).</p>
+        <h2>Track Inquiry / Order</h2>
+        <p class="muted">Enter a reference like <code>NSM-1002</code> to view latest status.</p>
         <div class="track-row">
-          <input id="track-input" type="text" placeholder="NSM-1002">
+          <input id="track-input" type="text" placeholder="NSM-1002" aria-label="Order ID">
           <button id="track-btn" class="btn btn-primary">Track</button>
         </div>
         <p id="track-result" class="muted"></p>
@@ -101,11 +118,20 @@
 
     <section id="testimonials" class="section alt">
       <div class="container">
-        <h2>What Customers Say</h2>
+        <h2>Trusted by Retailers & Kitchens</h2>
         <div class="testimonials-grid">
-          <blockquote>“Very consistent quality and on-time dispatch every week.” <cite>— Green Basket Store</cite></blockquote>
-          <blockquote>“The spice aroma is excellent. Packaging is premium.” <cite>— Spice Route Kitchen</cite></blockquote>
-          <blockquote>“Bulk buying process was smooth and transparent.” <cite>— Metro Foods</cite></blockquote>
+          <blockquote>
+            “Consistent quality and dependable dispatch schedules.”
+            <cite>— Green Basket Store</cite>
+          </blockquote>
+          <blockquote>
+            “Our restaurant team loves the spice freshness.”
+            <cite>— Spice Route Kitchen</cite>
+          </blockquote>
+          <blockquote>
+            “Great support for wholesale restocking.”
+            <cite>— Metro Foods</cite>
+          </blockquote>
         </div>
       </div>
     </section>
@@ -113,17 +139,18 @@
     <section id="contact" class="section">
       <div class="container contact-grid">
         <div>
-          <h2>Contact & Business Details</h2>
-          <p class="muted">No online payment on website. Place inquiry orders and receive payment options from our sales team.</p>
+          <h2>Contact Us</h2>
+          <p class="muted">This is an inquiry-first platform. We confirm final order details and payment offline (bank transfer/COD/business terms).</p>
           <p><strong>Phone:</strong> +1 (555) 010-2345</p>
           <p><strong>Email:</strong> sales@nutsandspicesmarket.com</p>
           <p><strong>Address:</strong> 120 Market Lane, Fresno, CA</p>
           <p><strong>Hours:</strong> Mon–Sat, 9:00 AM – 6:00 PM</p>
-          <a class="btn btn-ghost" href="https://wa.me/15550102345" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          <a class="btn btn-ghost" href="https://wa.me/15550102345" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
         </div>
+
         <form id="newsletter-form" class="newsletter" novalidate>
-          <h3>Newsletter Signup</h3>
-          <label for="newsletter-email">Get offers and stock updates</label>
+          <h3>Newsletter</h3>
+          <label for="newsletter-email">Get price alerts, stock updates, and offers.</label>
           <input id="newsletter-email" type="email" placeholder="you@example.com" required>
           <button class="btn btn-primary" type="submit">Subscribe</button>
           <p id="newsletter-status" class="muted"></p>
@@ -139,20 +166,22 @@
     </div>
     <div id="cart-items" class="cart-items"></div>
     <p id="cart-total" class="cart-total">Total: $0.00</p>
-    <button id="checkout-btn" class="btn btn-primary">Submit Inquiry Order</button>
-    <p class="muted">No payment collected online. Our team will contact you to confirm.</p>
+    <button id="checkout-btn" class="btn btn-primary">Submit Inquiry</button>
+    <p class="muted">No payment charged here. Sales team will confirm next steps.</p>
   </aside>
 
   <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
     <div class="modal-card">
-      <h3 id="auth-title">Login / Signup</h3>
+      <h3 id="auth-title">Account Access</h3>
       <form id="auth-form" novalidate>
         <label for="auth-name">Name</label>
-        <input id="auth-name" type="text" placeholder="Your name" required>
+        <input id="auth-name" type="text" placeholder="Your full name" required>
+
         <label for="auth-email">Email</label>
         <input id="auth-email" type="email" placeholder="you@example.com" required>
+
         <div class="modal-actions">
-          <button class="btn btn-primary" type="submit">Save Account</button>
+          <button class="btn btn-primary" type="submit">Save</button>
           <button id="auth-close" class="btn btn-ghost" type="button">Cancel</button>
         </div>
         <p id="auth-status" class="muted"></p>
@@ -163,7 +192,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <p>&copy; <span id="year"></span> Nuts & Spices Market.</p>
-      <p>SEO-ready static catalog platform with inquiry checkout.</p>
+      <p>Catalog platform • Inquiry checkout • No online payment</p>
     </div>
   </footer>
 
